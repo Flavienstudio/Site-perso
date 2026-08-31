@@ -10,19 +10,19 @@
   })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flavien Reulier — Designer web freelance (Emailing, Website, Branding)</title>
+<title>Flavien Reulier · Designer web freelance (Emailing, Website, Branding)</title>
 <meta name="description" content="Flavien Reulier, designer web freelance. Emailing, sites vitrine et identité de marque, du premier pixel à la mise en ligne. Découvrez mes projets et contactez-moi.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://flavien-reulier.com/">
-<meta property="og:title" content="Flavien Reulier — Designer web freelance">
+<meta property="og:title" content="Flavien Reulier · Designer web freelance">
 <meta property="og:description" content="Emailing, sites vitrine et identité de marque. Découvrez mes projets et contactez-moi pour votre projet.">
 <meta property="og:image" content="https://flavien-reulier.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flavien Reulier — Designer web freelance">
+<meta name="twitter:title" content="Flavien Reulier · Designer web freelance">
 <meta name="twitter:description" content="Emailing, sites vitrine et identité de marque. Découvrez mes projets et contactez-moi pour votre projet.">
 <meta name="twitter:image" content="https://flavien-reulier.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131114'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='26' fill='%23a1712f' text-anchor='middle'%3EFR%3C/text%3E%3C/svg%3E">
@@ -108,13 +108,6 @@
   .theme-toggle .icon-sun{display:none;}
   html[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
   html[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
-  .theme-toggle-label{display:none;}
-  .theme-toggle-mobile{
-    width:auto; height:auto; border-radius:999px; border:1px solid var(--line);
-    display:flex; align-items:center; gap:10px; padding:14px 18px; margin:8px 32px 16px;
-    justify-content:flex-start;
-  }
-  .theme-toggle-mobile .theme-toggle-label{display:inline; font-weight:500; font-size:15px; color:var(--ink-soft);}
 
 
   /* ---------- Highlighter marker ---------- */
@@ -190,10 +183,10 @@
   .nav-mobile.open{max-height:520px; border-bottom-color:var(--line);}
 
   @media (max-width:700px){
-    .nav{padding:20px 20px;}
+    .nav{padding:20px 20px; gap:12px; justify-content:flex-start;}
     nav.links{display:none;}
     .nav-cta{display:none;}
-    .nav > .theme-toggle{display:none;}
+    .nav > .theme-toggle{margin-left:auto;}
     .nav-burger{display:flex;}
     .nav-mobile{display:flex;}
   }
@@ -570,11 +563,6 @@
     <a href="#services">Services</a>
     <a href="#projets">Projets</a>
     <a href="#tarifs">Tarifs</a>
-    <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Changer de thème">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      <span class="theme-toggle-label">Mode sombre</span>
-    </button>
     <a href="#contact" class="nav-mobile-cta">Me contacter</a>
   </div>
 </header>
@@ -591,12 +579,12 @@
     <div class="hero-top">
       <h1>
         <span data-key="heroRole">Flavien Reulier</span>
-        <span class="role" data-key="heroRoleSub">Designer web freelance — Emailing, Website, Branding</span>
+        <span class="role" data-key="heroRoleSub">Designer web freelance · Emailing, Website, Branding</span>
       </h1>
       <div class="hero-index">
-        <span><em>01</em> — Emailing</span>
-        <span><em>02</em> — Website</span>
-        <span><em>03</em> — Branding</span>
+        <span><em>01</em> · Emailing</span>
+        <span><em>02</em> · Website</span>
+        <span><em>03</em> · Branding</span>
       </div>
     </div>
     <div class="hero-bottom">
@@ -621,7 +609,7 @@
     <div class="about-grid">
       <div>
         <p class="eyebrow">Qui je suis</p>
-        <p class="big-quote" data-key="aboutQuote">Le design doit servir <span class="highlight">votre message</span> — pas l'inverse.</p>
+        <p class="big-quote" data-key="aboutQuote">Le design doit servir <span class="highlight">votre message</span>, pas l'inverse.</p>
       </div>
       <div class="body-col">
         <p data-key="aboutText1">Ma formation, mes projets et mes expériences professionnelles m'ont permis de construire une double expertise en design et en développement web. J'aime concevoir des projets de A à Z, en associant créativité, exigence graphique et maîtrise technique.</p>
@@ -706,7 +694,7 @@
     </div>
     <div class="pricing-grid">
       <div class="price-card">
-        <p class="price-num">01 — Emailing</p>
+        <p class="price-num">01 · Emailing</p>
         <h3>Emailing</h3>
         <p class="price-tag">350 € <span>à partir de</span></p>
         <p class="price-note">Par template ou campagne</p>
@@ -721,7 +709,7 @@
       </div>
 
       <div class="price-card featured">
-        <p class="price-num">02 — Website</p>
+        <p class="price-num">02 · Website</p>
         <h3>Site vitrine</h3>
         <p class="price-tag">1 500 € <span>à partir de</span></p>
         <p class="price-note">Site one-page ou multi-pages</p>
@@ -737,7 +725,7 @@
       </div>
 
       <div class="price-card">
-        <p class="price-num">03 — Branding</p>
+        <p class="price-num">03 · Branding</p>
         <h3>Branding</h3>
         <p class="price-tag">900 € <span>à partir de</span></p>
         <p class="price-note">Identité visuelle complète</p>
@@ -865,7 +853,7 @@
 </section>
 
 <footer>
-  <p>© <span id="year"></span> — <span data-key="footerName2">Flavien Reulier</span>. Tous droits réservés.</p>
+  <p>© <span id="year"></span> · <span data-key="footerName2">Flavien Reulier</span>. Tous droits réservés.</p>
   <div class="legal-links">
     <button type="button" id="openMentions">Mentions légales</button>
     <button type="button" id="openConfidentialite">Politique de confidentialité</button>
@@ -878,14 +866,14 @@
     <h2>Mentions légales</h2>
     <h3>Éditeur du site</h3>
     <p>
-      Flavien Reulier — entrepreneur individuel (micro-entrepreneur).<br>
+      Flavien Reulier, entrepreneur individuel (micro-entrepreneur).<br>
       Adresse : <span class="fill-me">[adresse à compléter]</span><br>
       SIRET : <span class="fill-me">[numéro SIRET à compléter]</span><br>
       Email : <a href="mailto:flavien.reulierstudio@gmail.com">flavien.reulierstudio@gmail.com</a><br>
       Directeur de la publication : Flavien Reulier
     </p>
     <h3>Hébergement</h3>
-    <p>Cloudflare, Inc. — 101 Townsend Street, San Francisco, CA 94107, États-Unis.</p>
+    <p>Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</p>
     <h3>Propriété intellectuelle</h3>
     <p>L'ensemble des contenus présents sur ce site (textes, visuels, identité graphique) est la propriété de Flavien Reulier, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
     <h3>Crédits</h3>
@@ -1016,7 +1004,6 @@ function toggleTheme(){
   }
 }
 document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
 
 /* ---------- Custom select (Sujet) ---------- */
 const csTrigger = document.getElementById('csTrigger');
@@ -1170,7 +1157,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   const formData = new FormData(form);
   const serviceLabel = formData.get('subject_service');
   const subjectPrefix = serviceLabel ? '[' + serviceLabel + '] ' : '';
-  formData.append('subject', subjectPrefix + 'Nouveau message depuis le site — ' + formData.get('name'));
+  formData.append('subject', subjectPrefix + 'Nouveau message depuis le site : ' + formData.get('name'));
 
   btn.disabled = true;
   btnLabel.textContent = 'Envoi en cours…';
