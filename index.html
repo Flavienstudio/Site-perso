@@ -283,6 +283,31 @@
   section[id]{scroll-margin-top:90px;}
   .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:56px; flex-wrap:wrap;}
   .section-head h2, .projects-head h2{font-size:36px; font-size:clamp(30px,4vw,46px);}
+  .process-lead{color:var(--muted); font-size:16px; margin-top:8px;}
+
+  /* ---------- Process ---------- */
+  .process-row{display:grid; grid-template-columns:repeat(4, 1fr); gap:32px; position:relative;}
+  .process-row::before{
+    content:''; position:absolute; top:13px; left:6%; right:6%; height:1px; background:var(--line); z-index:0;
+  }
+  .process-step{position:relative; z-index:1;}
+  .ps-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:50%; background:var(--paper);
+    border:1px solid var(--accent); color:var(--accent);
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500;
+    margin-bottom:18px;
+  }
+  .process-step h3{font-size:19px; font-weight:600; margin-bottom:8px;}
+  .process-step p{color:var(--muted); font-size:14.5px; line-height:1.6;}
+
+  @media (max-width:820px){
+    .process-row{grid-template-columns:1fr 1fr; gap:36px 24px;}
+    .process-row::before{display:none;}
+  }
+  @media (max-width:520px){
+    .process-row{grid-template-columns:1fr; gap:32px;}
+  }
 
   @media (max-width:700px){
     .hero{padding:120px 0 48px;}
@@ -370,6 +395,49 @@
   }
 
   /* ---------- Pricing ---------- */
+  /* ---------- Budget estimator ---------- */
+  .estimator{
+    background:var(--paper-2); border:1px solid var(--line); border-radius:2px;
+    padding:40px; margin-bottom:40px; position:relative; overflow:hidden;
+  }
+  .estimator::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+    opacity:0.7;
+  }
+  .estimator-kicker{
+    font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--accent); margin-bottom:10px;
+  }
+  .estimator-head h3{font-size:24px; margin-bottom:8px;}
+  .estimator-sub{color:var(--muted); font-size:14.5px; margin-bottom:28px;}
+  .estimator-label{font-weight:600; font-size:14.5px; margin-bottom:14px;}
+  .estimator-options{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;}
+  .estimator-opt{
+    display:flex; flex-direction:column; align-items:flex-start; gap:4px; text-align:left;
+    background:var(--paper); border:1px solid var(--line); border-radius:2px;
+    padding:18px 16px; cursor:pointer; font-family:'Karla',sans-serif;
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .estimator-opt:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .estimator-opt.selected{border-color:var(--accent); background:var(--accent-soft);}
+  .eo-title{font-weight:600; font-size:15.5px; color:var(--ink);}
+  .eo-desc{font-size:12.5px; color:var(--muted);}
+  .estimator-back{
+    margin-top:18px; background:none; border:none; color:var(--muted); font-size:13px;
+    font-family:'Karla',sans-serif; cursor:pointer; text-decoration:underline; padding:0;
+  }
+  .estimator-back:hover{color:var(--accent);}
+  .estimator-result{text-align:center; padding:12px 0;}
+  .estimator-price{font-family:'Shantell Sans',sans-serif; font-weight:700; font-size:clamp(32px,5vw,48px); color:var(--accent); margin-bottom:8px;}
+  .estimator-price-note{color:var(--muted); font-size:14px; margin-bottom:28px; max-width:440px; margin-left:auto; margin-right:auto;}
+  .estimator-cta-row{display:flex; flex-direction:column; align-items:center; gap:12px;}
+
+  @media (max-width:700px){
+    .estimator{padding:28px 22px;}
+    .estimator-options{grid-template-columns:1fr;}
+  }
+
   .pricing-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
   .price-card{
     display:flex; flex-direction:column; border:1px solid var(--line); border-radius:2px;
@@ -751,6 +819,38 @@
   </div>
 </section>
 
+<section id="processus" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Méthode</p>
+      <h2>Comment ça se passe</h2>
+      <p class="process-lead">Un processus clair, du premier échange à la mise en ligne.</p>
+    </div>
+    <div class="process-row">
+      <div class="process-step">
+        <span class="ps-num">01</span>
+        <h3>Échange initial</h3>
+        <p>Un appel ou un message pour comprendre votre besoin, votre budget et vos délais.</p>
+      </div>
+      <div class="process-step">
+        <span class="ps-num">02</span>
+        <h3>Devis</h3>
+        <p>Une proposition claire et chiffrée, sans surprise, envoyée sous 24 à 48h.</p>
+      </div>
+      <div class="process-step">
+        <span class="ps-num">03</span>
+        <h3>Maquette</h3>
+        <p>Conception puis validation avec vous, avant de passer au développement.</p>
+      </div>
+      <div class="process-step">
+        <span class="ps-num">04</span>
+        <h3>Livraison</h3>
+        <p>Mise en ligne, et disponibilité pour les ajustements après livraison.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="projets" class="reveal">
   <div class="ink-blot tr" aria-hidden="true">
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -778,6 +878,49 @@
       <h2>Mes tarifs</h2>
       <p class="eyebrow" style="margin-bottom:0;">Simple et transparent</p>
     </div>
+
+    <div class="estimator" id="estimator">
+      <div class="estimator-head">
+        <p class="estimator-kicker">Estimation rapide</p>
+        <h3>Quel est votre budget approximatif ?</h3>
+        <p class="estimator-sub">Répondez à 2 questions pour une estimation immédiate — sans engagement.</p>
+      </div>
+
+      <div class="estimator-step" data-step="1">
+        <p class="estimator-label">1. Quel service vous intéresse ?</p>
+        <div class="estimator-options" id="estStep1">
+          <button type="button" class="estimator-opt" data-service="Emailing">
+            <span class="eo-title">Emailing</span>
+            <span class="eo-desc">Maquette + intégration</span>
+          </button>
+          <button type="button" class="estimator-opt" data-service="Website">
+            <span class="eo-title">Website</span>
+            <span class="eo-desc">Site vitrine ou landing</span>
+          </button>
+          <button type="button" class="estimator-opt" data-service="Branding">
+            <span class="eo-title">Branding</span>
+            <span class="eo-desc">Identité visuelle</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="estimator-step" data-step="2" hidden>
+        <p class="estimator-label" id="estStep2Label">2. Précisez votre besoin</p>
+        <div class="estimator-options" id="estStep2"></div>
+        <button type="button" class="estimator-back" id="estBack">← Revenir en arrière</button>
+      </div>
+
+      <div class="estimator-result" id="estResult" hidden>
+        <p class="estimator-kicker">Estimation</p>
+        <p class="estimator-price" id="estPrice">—</p>
+        <p class="estimator-price-note" id="estPriceNote"></p>
+        <div class="estimator-cta-row">
+          <a href="#contact" class="btn btn-solid" id="estCta">Demander un devis précis</a>
+          <button type="button" class="estimator-back" id="estRestart">Recommencer</button>
+        </div>
+      </div>
+    </div>
+
     <div class="pricing-grid">
       <div class="price-card">
         <p class="price-num">01 · Emailing</p>
@@ -880,6 +1023,7 @@
 
       <form class="contact-form" id="contactForm">
         <input type="hidden" name="access_key" value="5056a80a-d0d0-47b4-b44a-073d57ce4a2e">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="field">
             <label for="cfName">Nom</label>
@@ -1159,6 +1303,113 @@ document.querySelectorAll('.quote-link').forEach(link => {
     }, 600);
   });
 });
+
+/* ---------- Budget estimator ---------- */
+const estimatorData = {
+  Emailing: {
+    label: "2. Quel volume d'emails ?",
+    options: [
+      { title: "1 à 2 emails ponctuels", desc: "Newsletter ou campagne unique", price: "200 € – 350 €", note: "Maquette seule ou maquette + intégration, selon votre besoin exact.", detail: "1 à 2 emails ponctuels" },
+      { title: "Volume régulier (3+/mois)", desc: "Collaboration suivie", price: "À partir de 130 €/email", note: "Tarif dégressif selon le volume mensuel et la régularité de la collaboration.", detail: "un volume régulier d'emails (3 ou plus par mois)" }
+    ]
+  },
+  Website: {
+    label: "2. Quel type de site ?",
+    options: [
+      { title: "Landing page simple", desc: "Une seule page", price: "900 €", note: "Design + développement + mise en ligne, sur une page unique.", detail: "une landing page simple" },
+      { title: "Site vitrine complet", desc: "Plusieurs pages", price: "1 500 €", note: "Design + développement + SEO de base, plusieurs pages.", detail: "un site vitrine complet" },
+      { title: "Refonte d'un site existant", desc: "Site déjà en ligne", price: "À partir de 700 €", note: "Le tarif exact dépend de l'ampleur de la refonte souhaitée.", detail: "la refonte d'un site existant" }
+    ]
+  },
+  Branding: {
+    label: "2. Quel niveau d'identité visuelle ?",
+    options: [
+      { title: "Logo seul", desc: "Logo + 2 déclinaisons", price: "350 €", note: "Un logo avec ses déclinaisons de couleurs.", detail: "un logo seul" },
+      { title: "Logo + charte graphique", desc: "Base complète", price: "850 €", note: "Logo et charte graphique complète (couleurs, typographies).", detail: "un logo accompagné d'une charte graphique" },
+      { title: "Identité complète", desc: "Logo, charte, déclinaisons", price: "900 €", note: "Logo, charte graphique et déclinaison sur l'ensemble de vos supports.", detail: "une identité de marque complète" }
+    ]
+  }
+};
+
+function prefillContactForm(service, detail){
+  const subjectInput = document.getElementById('cfSubject');
+  const messageField = document.getElementById('cfMessage');
+  if(subjectInput && service){
+    subjectInput.value = service;
+    const opt = document.querySelector('.cs-options li[data-value="'+service+'"]');
+    if(opt){
+      document.getElementById('csValue').textContent = opt.textContent;
+      document.getElementById('csValue').classList.remove('placeholder');
+      document.querySelectorAll('.cs-options li').forEach(li => li.classList.remove('active'));
+      opt.classList.add('active');
+    }
+  }
+  if(messageField && quoteMessages[service]){
+    messageField.value = quoteMessages[service] + (detail ? "Je suis intéressé(e) par : " + detail + ".\n" : "");
+  }
+}
+
+const estStep1 = document.getElementById('estStep1');
+const estStep2El = document.querySelector('.estimator-step[data-step="2"]');
+const estStep2 = document.getElementById('estStep2');
+const estStep2Label = document.getElementById('estStep2Label');
+const estStep1El = document.querySelector('.estimator-step[data-step="1"]');
+const estResult = document.getElementById('estResult');
+const estPrice = document.getElementById('estPrice');
+const estPriceNote = document.getElementById('estPriceNote');
+const estCta = document.getElementById('estCta');
+const estBack = document.getElementById('estBack');
+const estRestart = document.getElementById('estRestart');
+
+if(estStep1){
+  let currentService = null;
+
+  estStep1.querySelectorAll('.estimator-opt').forEach(btn => {
+    btn.addEventListener('click', function(){
+      currentService = this.getAttribute('data-service');
+      const data = estimatorData[currentService];
+      estStep2Label.textContent = data.label;
+      estStep2.innerHTML = '';
+      data.options.forEach(opt => {
+        const optBtn = document.createElement('button');
+        optBtn.type = 'button';
+        optBtn.className = 'estimator-opt';
+        optBtn.innerHTML = '<span class="eo-title">'+opt.title+'</span><span class="eo-desc">'+opt.desc+'</span>';
+        optBtn.addEventListener('click', function(){
+          estStep2El.hidden = true;
+          estResult.hidden = false;
+          estPrice.textContent = opt.price;
+          estPriceNote.textContent = opt.note;
+          estCta.setAttribute('data-service', currentService);
+          estCta.setAttribute('data-detail', opt.detail);
+        });
+        estStep2.appendChild(optBtn);
+      });
+      estStep1El.hidden = true;
+      estStep2El.hidden = false;
+    });
+  });
+
+  if(estBack) estBack.addEventListener('click', () => {
+    estStep2El.hidden = true;
+    estStep1El.hidden = false;
+  });
+
+  if(estRestart) estRestart.addEventListener('click', () => {
+    estResult.hidden = true;
+    estStep1El.hidden = false;
+  });
+
+  if(estCta) estCta.addEventListener('click', function(){
+    const service = this.getAttribute('data-service');
+    const detail = this.getAttribute('data-detail');
+    prefillContactForm(service, detail);
+    setTimeout(() => {
+      const nameField = document.getElementById('cfName');
+      if(nameField && !nameField.value) nameField.focus();
+    }, 600);
+  });
+}
 
 /* ---------- Scroll progress + header state ---------- */
 const progressBar = document.getElementById('scrollProgress');
