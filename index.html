@@ -732,7 +732,7 @@
   .reviews-cta{display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap;}
   .reviews-cta p{margin:0; font-weight:600;}
   .reviews-note{font-size:12.5px; color:var(--muted); text-align:center; max-width:70ch; margin:22px auto 0;}
-  .reviews-grid[hidden], .reviews-empty[hidden]{display:none;}
+  .reviews-grid[hidden], .reviews-empty[hidden], .reviews-cta[hidden]{display:none;}
   @media (max-width:900px){ .reviews-grid{grid-template-columns:1fr;} }
 
   .rv-field{margin-bottom:16px;}
@@ -853,6 +853,30 @@
         </span>
       </a>
     </div>
+  </div>
+</section>
+
+<section id="avis" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Avis clients</p>
+      <h2>Ce que disent mes clients</h2>
+      <p class="process-lead">Des retours de vraies personnes, publiés après vérification. Certains acceptent d'échanger directement avec vous pour raconter comment ça s'est passé.</p>
+    </div>
+
+    <div class="reviews-grid" id="reviewsGrid" hidden></div>
+
+    <div class="reviews-empty" id="reviewsEmpty">
+      <p class="re-title">Vous avez travaillé avec moi&nbsp;?</p>
+      <p>Votre retour aide les prochains clients à se décider, et ne prend que quelques minutes. Il sera relu puis publié tel quel, avec votre accord.</p>
+      <button type="button" class="btn btn-solid" id="openReviewEmpty" style="margin-top:22px;">Laisser un avis</button>
+    </div>
+
+    <div class="reviews-cta" id="reviewsCta">
+      <p>Vous avez travaillé avec moi&nbsp;?</p>
+      <button type="button" class="btn btn-outline" id="openReview">Laisser un avis</button>
+    </div>
+    <p class="reviews-note">Avis déposés par mes clients via le formulaire ci-dessus, pour une prestation réelle, sans contrepartie. Chaque avis est rattaché à une mission vérifiée avant publication, n'est pas modifié, et sa date est indiquée. Un client peut demander son retrait à tout moment.</p>
   </div>
 </section>
 
@@ -1101,29 +1125,6 @@
   </div>
 </section>
 
-<section id="avis" class="reveal">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Avis clients</p>
-      <h2>Ce que disent mes clients</h2>
-      <p class="process-lead">Des retours de vraies personnes, publiés après vérification. Certains acceptent d'échanger directement avec vous pour raconter comment ça s'est passé.</p>
-    </div>
-
-    <div class="reviews-grid" id="reviewsGrid" hidden></div>
-
-    <div class="reviews-empty" id="reviewsEmpty">
-      <p class="re-title">Les premiers avis arrivent.</p>
-      <p>Mes premiers projets clients viennent d'être livrés. Leurs retours apparaîtront ici dès qu'ils auront été reçus et vérifiés, sans être retouchés.</p>
-    </div>
-
-    <div class="reviews-cta">
-      <p>Vous avez travaillé avec moi&nbsp;?</p>
-      <button type="button" class="btn btn-outline" id="openReview">Laisser un avis</button>
-    </div>
-    <p class="reviews-note">Avis déposés par mes clients via le formulaire ci-dessus, pour une prestation réelle, sans contrepartie. Chaque avis est rattaché à une mission vérifiée avant publication, n'est pas modifié, et sa date est indiquée. Un client peut demander son retrait à tout moment.</p>
-  </div>
-</section>
-
 <section id="contact" class="reveal contact-section">
   <div class="torn-divider" aria-hidden="true">
     <svg viewBox="0 0 400 20" preserveAspectRatio="none">
@@ -1208,6 +1209,7 @@
 <footer>
   <p>© <span id="year"></span> · <span data-key="footerName2">Flavien Reulier</span>. Tous droits réservés.</p>
   <div class="legal-links">
+    <button type="button" id="openReviewFooter">Laisser un avis</button>
     <button type="button" id="openMentions">Mentions légales</button>
     <button type="button" id="openConfidentialite">Politique de confidentialité</button>
   </div>
@@ -1672,10 +1674,12 @@ const reviews = [];
 function renderReviews(){
   const grid = document.getElementById('reviewsGrid');
   const empty = document.getElementById('reviewsEmpty');
-  if(!grid || !empty) return;
+  const cta = document.getElementById('reviewsCta');
+  if(!grid || !empty || !cta) return;
   grid.innerHTML = '';
   grid.hidden = reviews.length === 0;
   empty.hidden = reviews.length > 0;
+  cta.hidden = reviews.length === 0;
   const el = (tag, cls, txt) => { const n = document.createElement(tag); if(cls) n.className = cls; if(txt !== undefined) n.textContent = txt; return n; };
   reviews.forEach(r => {
     const card = el('article', 'review-card');
@@ -1739,7 +1743,13 @@ bindWeb3Form('reviewContactForm', 'rcSubmit', 'rcStatus', 'Envoyer ma question',
   fd => '[MISE EN RELATION] Question pour ' + fd.get('client_concerne'),
   "Merci ! Je transmets votre question à ce client, qui vous répondra s'il le souhaite.");
 const openReviewBtn = document.getElementById('openReview');
-if(openReviewBtn) openReviewBtn.addEventListener('click', () => document.getElementById('reviewOverlay').classList.add('open'));
+const openReviewModal = () => document.getElementById('reviewOverlay').classList.add('open');
+if(openReviewBtn) openReviewBtn.addEventListener('click', openReviewModal);
+const openReviewEmpty = document.getElementById('openReviewEmpty');
+if(openReviewEmpty) openReviewEmpty.addEventListener('click', openReviewModal);
+const openReviewFooter = document.getElementById('openReviewFooter');
+if(openReviewFooter) openReviewFooter.addEventListener('click', openReviewModal);
+if(location.hash === '#laisser-un-avis') openReviewModal();
 </script>
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0f9d4225a2f74669a28aa762c10a0a70"}'></script>
