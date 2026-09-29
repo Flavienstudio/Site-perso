@@ -876,7 +876,6 @@
       <p>Vous avez travaillé avec moi&nbsp;?</p>
       <button type="button" class="btn btn-outline" id="openReview">Laisser un avis</button>
     </div>
-    <p class="reviews-note">Avis déposés par mes clients via le formulaire ci-dessus, pour une prestation réelle, sans contrepartie. Chaque avis est rattaché à une mission vérifiée avant publication, n'est pas modifié, et sa date est indiquée. Un client peut demander son retrait à tout moment.</p>
   </div>
 </section>
 
@@ -1669,7 +1668,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
    { name:'Prénom N.', service:'Site vitrine', date:'2026-09', rating:5,
      text:"Texte de l'avis, tel que reçu.", contactable:true }
    contactable:true seulement si le client a coché la mise en relation. */
-const reviews = [];
+const reviews = [
+  { name:'Christophe C. \u2014 Ohmelec', service:'Site vitrine', date:'2026-09', rating:5,
+    text:"Nous sommes très satisfaits du travail réalisé par Flavien Reulier pour la création du site internet de notre entreprise d’électricité. Le site est très esthétique, clair et professionnel, avec une présentation parfaitement adaptée à nos clients. Le résultat a largement dépassé nos attentes. Nous le remercions chaleureusement pour son écoute, son sérieux et tout le travail mis en œuvre pour concevoir un site à notre image. Nous apprécions également beaucoup le design de nos cartes de visite, réalisé avec soin et cohérence avec notre identité professionnelle. Nous recommandons vivement ses services !", contactable:true }
+];
 
 function renderReviews(){
   const grid = document.getElementById('reviewsGrid');
